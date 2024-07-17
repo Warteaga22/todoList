@@ -40,14 +40,23 @@ h1 {
     border: none;
     padding: 8px;
 }
+
+.formulario {
+    display: flex;
+    justify-content: center; 
+}
+
 .formulario input[type="submit"] {
     border: none;
-    padding: 10px;
-    background-color: #d81b60;
+    padding: 10px 80px; 
+    background-color: #d81b609f;
     color: #fff;
     cursor: pointer;
     border-radius: 8px;
+    margin: 10px auto; 
+    display: block; 
 }
+
 .tareas {
     padding: 10px;
     margin: 10px;
