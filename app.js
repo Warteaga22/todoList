@@ -4,6 +4,7 @@ const tareas = document.querySelector("#tareas");
 const total = document.querySelector("#total");
 const completadas = document.querySelector("#completadas");
 let task = [];
+
 /* EVENTOS */
 (() => {
     formulario.addEventListener('submit', validarFormulario);
@@ -34,9 +35,7 @@ function validarFormulario(e) {
 
     //agregamos al HTML
     agregarHTML();
-
 }
-
 
 function agregarHTML() {
 
@@ -50,13 +49,9 @@ function agregarHTML() {
             const elemento = document.createElement('div');
             elemento.classList.add('item-tarea');
             elemento.innerHTML = `
-                <p>${item.estado ? (
-                    `<span class='completa'>${item.tarea}</span>`
-                ) : (
-                    `<span>${item.tarea}</span>`
-                )}</p>
+                <p><span class='${item.estado ? 'completa' : ''}'>${item.tarea}</span></p>
                 <div class="botones">
-                    <button class="eliminar" data-id="${item.id}">✖ </button>
+                    <button class="eliminar" data-id="${item.id}">✖</button>
                     <button class="completada" data-id="${item.id}">✔</button>
                 </div>
             `
@@ -77,7 +72,6 @@ function agregarHTML() {
 
     //persistir los datos con localStorage
     localStorage.setItem("tareas", JSON.stringify(task))
-
 }
 
 function eliminarTarea(e) {
@@ -89,7 +83,6 @@ function eliminarTarea(e) {
         agregarHTML();
     }
 }
-
 
 //completar tarea
 function completarTarea(e) {
